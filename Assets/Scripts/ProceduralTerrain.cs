@@ -15,6 +15,7 @@ public class ProceduralTerrain : MonoBehaviour
     {
     
         GenerateMesh();
+ 
     }
     private void GenerateMesh()
     {
@@ -56,6 +57,11 @@ public class ProceduralTerrain : MonoBehaviour
         mesh.vertices = vertices;
         mesh.triangles = triangles; 
         mesh.RecalculateNormals();
+
+        MeshCollider meshCollider = GetComponent<MeshCollider>();
+        meshCollider.sharedMesh = mesh;
+
+        
 
 
     }
