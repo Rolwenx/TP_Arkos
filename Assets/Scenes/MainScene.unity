@@ -155,6 +155,7 @@ MonoBehaviour:
   HEIGHT: 50
   scale: 0.1
   amplitude: 5
+  LODDistance: 30
 --- !u!23 &307407309
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -178,7 +179,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ff6b1ee3689d74f03babccdf4ab1ccb1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
