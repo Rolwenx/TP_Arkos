@@ -13,6 +13,8 @@ public class StormController : MonoBehaviour
     public AudioSource clickSound;
     public TextMeshProUGUI messageText;
     public AudioSource blizzardSound;
+    public ForestButtonSpawner forestSpawner;
+    public ForestController forestController;
 
     public void CalmStorm()
     {
@@ -26,9 +28,15 @@ public class StormController : MonoBehaviour
             clickSound.Play();
         }
         if (blizzardSound != null)
-            blizzardSound.Stop(); // 🔇 Stop blizzard sound
+            blizzardSound.Stop();
+
+
+        if (forestSpawner != null)
+            forestSpawner.SpawnAtRandomPoint();
+
 
         StartCoroutine(DelayedDoorOpen());
+
     }
 
     private IEnumerator DelayedDoorOpen()
@@ -38,13 +46,12 @@ public class StormController : MonoBehaviour
             messageText.gameObject.SetActive(true);
             messageText.text = "Proceed to next zone";
         }
+        yield return new WaitForSeconds(3f);
 
-        yield return new WaitForSeconds(3f); // Wait 3 seconds
-
-        // Open the doors
         door.SetActive(false);
         door2.SetActive(false);
 
         messageText.gameObject.SetActive(false);
+        forestController.StartForestChallenge();
     }
 }
