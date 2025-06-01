@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Fire
+  - SnowTerrain
+  - ForestTerrain
   layers:
   - Default
   - TransparentFX
