@@ -43882,7 +43882,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1621174508}
-  - component: {fileID: 1621174510}
   - component: {fileID: 1621174507}
   - component: {fileID: 1621174506}
   - component: {fileID: 1621174505}
@@ -44003,19 +44002,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &1621174510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621174504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ec38dd9f1c9f47db8e3b86a0a5c89ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  victoryPanel: {fileID: 1165466736}
 --- !u!1 &1621261473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a22c0cd7df02343f3be03690fdf5b0fe, type: 3}
