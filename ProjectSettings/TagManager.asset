@@ -11,6 +11,8 @@ TagManager:
   - ToxicZone
   - CinemachineTarget
   - Button
+  - Barrier
+  - Robot
   layers:
   - Default
   - TransparentFX

@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
+using StarterAssets;
 
 public class ForestController : MonoBehaviour
 {
@@ -21,21 +22,26 @@ public class ForestController : MonoBehaviour
     public GameObject fogToActivate;
     public float timeLimit = 60f;
 
+
     private bool challengeStarted = false; 
+    public bool forestChallengeFinished = false;
+
     private bool timerStarted = false;
     private bool toxicDisabled = false;
     private float timer;
 
     public GameObject player; 
-    private PlayerMovement movementScript; 
+    private ThirdPersonController movementScript; 
 
+    private int toxicHits = 0;
+    private int maxToxicHits = 3;
 
 
 
     public void StartForestChallenge()
     {
 
-        movementScript = player.GetComponent<PlayerMovement>();
+        movementScript = player.GetComponent<ThirdPersonController>();
         if (movementScript != null)
             movementScript.enabled = false;
 
@@ -62,22 +68,23 @@ public class ForestController : MonoBehaviour
     {
         if (!challengeStarted) return;
 
-            if (!timerStarted && Input.anyKeyDown)
+            if (!timerStarted && Input.GetKeyDown(KeyCode.Space))
             {
                 introPanel.SetActive(false);
                 Time.timeScale = 1f;
                 timerText.gameObject.SetActive(true);
                 timer = timeLimit;
                 timerStarted = true;
-            
-            if (movementScript != null)
-            movementScript.enabled = true;
-        }
+
+                if (movementScript != null)
+                    movementScript.enabled = true;
+        
+            }
 
         if (timerStarted && !toxicDisabled)
         {
             timer -= Time.deltaTime;
-            timerText.text = "Time left: " + Mathf.Ceil(timer) + "s";
+            timerText.text = "Temps restant : " + Mathf.Ceil(timer) + "s";
 
             if (timer <= 0)
             {
@@ -88,8 +95,8 @@ public class ForestController : MonoBehaviour
 
     public void ShowToxicWarning()
     {
-        if (toxicDisabled) return; // Prevent messages after the button is clicked
-
+        if (toxicDisabled) return;
+        toxicHits++;
         if (toxicMessage != null)
             toxicMessage.SetActive(true);
 
@@ -97,6 +104,11 @@ public class ForestController : MonoBehaviour
             ouchSound.Play();
 
         Invoke(nameof(HideMessage), 2.5f);
+
+        if (toxicHits >= maxToxicHits)
+        {
+            TriggerFailure(); 
+        }
     }
 
 
@@ -112,6 +124,7 @@ public class ForestController : MonoBehaviour
     {
         toxicDisabled = true;
         timerStarted = false;
+        challengeStarted = false;
         timerText.gameObject.SetActive(false);
         foreach (ParticleSystem ps in allToxicParticles)
         {
@@ -129,7 +142,7 @@ public class ForestController : MonoBehaviour
         if (messageText != null)
         {
             messageText.gameObject.SetActive(true);
-            messageText.text = "Proceed to next zone";
+            messageText.text = "La prochaine zone est disponible";
         }
 
         yield return new WaitForSeconds(3f);

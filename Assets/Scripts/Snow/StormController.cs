@@ -44,7 +44,7 @@ public class StormController : MonoBehaviour
         if (messageText != null)
         {
             messageText.gameObject.SetActive(true);
-            messageText.text = "Proceed to next zone";
+            messageText.text = "La prochaine zone est disponible";
         }
         yield return new WaitForSeconds(3f);
 

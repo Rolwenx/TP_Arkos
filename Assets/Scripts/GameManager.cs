@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (!panelDismissed && Input.anyKeyDown)
+        if (!panelDismissed && Input.GetKeyDown(KeyCode.Space))
         {
             HidePanel();
         }
