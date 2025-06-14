@@ -18,7 +18,7 @@ public class ClickableButton : MonoBehaviour
         {
             interactPrompt.SetActive(true);
 
-            if (Input.GetMouseButtonDown(0)) 
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 stormController.CalmStorm();
                 interactPrompt.SetActive(false);

@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float verticalLookRotation = 0f;
     private CharacterController controller;
 
+    public bool isFrozen = false;
+
 
     void Start()
     {
@@ -33,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
+        if (isFrozen) return;
+        
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         transform.Rotate(Vector3.up * mouseX);
 
@@ -67,8 +72,7 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = rb.linearVelocity.y; // Garder vitesse verticale (gravité)
         rb.linearVelocity = velocity;
 
-        animator.SetFloat("Speed", new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z).magnitude / runSpeed);
-
+        animator.SetFloat("Speed", new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z).magnitude / runSpeed);
 
     }
 

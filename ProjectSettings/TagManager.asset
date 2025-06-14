@@ -9,6 +9,8 @@ TagManager:
   - SnowTerrain
   - ForestTerrain
   - ToxicZone
+  - CinemachineTarget
+  - Button
   layers:
   - Default
   - TransparentFX
