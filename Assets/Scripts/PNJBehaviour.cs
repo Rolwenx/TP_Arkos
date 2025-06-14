@@ -10,6 +10,7 @@ public class PNJBehaviour : MonoBehaviour
     public Camera buttonCamera;
 
     public Transform player;
+    public GameObject player_obj;
     public float interactionDistance = 2.5f;
     public GameObject interactPrompt;
     public GameObject dialoguePanel;
@@ -53,6 +54,7 @@ public class PNJBehaviour : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    player_obj.SetActive(false);
                     playerMovement.enabled = false;
                     mainCamera.gameObject.SetActive(false);
                     pnjCamera.gameObject.SetActive(true);
@@ -60,7 +62,6 @@ public class PNJBehaviour : MonoBehaviour
                     isTalking = true;
                     currentLine = 0;
                     dialoguePanel.SetActive(true);
-
                     pnjText.text = dialogueLines[currentLine];
                 }
             }
@@ -109,6 +110,7 @@ public class PNJBehaviour : MonoBehaviour
                     mainCamera.gameObject.SetActive(true);
                     pnjCamera.gameObject.SetActive(false);
                     buttonCamera.gameObject.SetActive(false);
+                    player_obj.SetActive(true);
                 }
             }
         }

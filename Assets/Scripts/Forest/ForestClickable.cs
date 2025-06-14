@@ -19,7 +19,7 @@ public class ForestClickable : MonoBehaviour
 
         interactPrompt.SetActive(isInRange);
 
-        if (isInRange && Input.GetMouseButtonDown(0))
+        if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
             forestController.DisableToxic();
             interactPrompt.SetActive(false);
