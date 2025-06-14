@@ -29,7 +29,7 @@ Shader Graph, Particules, Timeline, NavMesh, Animation, Pathfinding, etc.
 🎓 TPs utilisés :
 - TP5 Shader Graph : shader neige au sol et sur les murs
 - TP6 Particules : effet 1 - tempête de neige
-- tout le TP7 Animation + interaction
+- TP7 Animation + interaction : PNJ, timeline, caméra
 
 ---
 
@@ -37,6 +37,7 @@ Shader Graph, Particules, Timeline, NavMesh, Animation, Pathfinding, etc.
 
 - Timer de 1 minute au démarrage
 - Zones de **brume toxique** (particules + damage zone)
+- Le joueur meurt après 3 expositions
 - Mare avec shader d’eau
 - Feu de camp qui s’allume automatiquement quand le joueur approche
 - Un bouton caché désactive les toxines
@@ -44,29 +45,30 @@ Shader Graph, Particules, Timeline, NavMesh, Animation, Pathfinding, etc.
 🎓 TPs utilisés :
 - TP5 : Shader d’herbe + eau animée
 - TP6 : effet 2 (feu de camp qui s'enflamme à proximité du joueur), effet de brume (effet 3), effet 1 (feuillage)
-- TP7 : déclenchement animation/FX via trigger
+- TP7 : déclenchement FX via trigger + événements
 
 ---
 
 ## 🌋 Zone Volcan
 
-- Agent IA (NavMeshAgent) avec pathfinding vers une zone sûre
-- Déblocage de zone via obstacle dynamique
-- Zone d'expérimentation pour TP8
+- Le robot doit atteindre une station de secours à travers un terrain dangereux
+- Un générateur désactivable retire dynamiquement une barrière énergétique (via NavMeshSurface.BuildNavMesh()) et démare le chemin du robot
+- Obstacles dynamiques.
 
 🎓 TPs utilisés :
-- TP8 Pathfinding réactif + obstacles dynamiques
-- Déclenchement de mouvements avec obstacles qui se retirent
+- TP8 Pathfinding réactif
+- Utilisation avancée de NavMeshAgent, Obstacle, Surface
+- Animation réactive liée à la vélocité de l'agent
 
 ---
 
 ## 🌄 Scène secondaire : TerrainProcedurale
-
 ---
-
-
 ## 💬 Commentaires
 
 Ce projet est une synthèse créative et technique des TPs réalisés dans le semestre, sous la tutelle de Mr. Guillaume LOUP.
-Chaque effet ou système a été intégré de manière à former un mini-parcours interactif.
+Chaque environnement met en valeur une compétence : shaders, FX, pathfinding, animation.
+L’ensemble est pensé comme un parcours interactif évolutif, intégrant narration, gameplay et progression technique.
+
+
 
